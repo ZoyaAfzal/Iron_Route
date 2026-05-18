@@ -1,0 +1,219 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-light: var(--light);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --shadow-glow: 0 10px 40px -10px oklch(0.68 0.22 38 / 0.3);
+  --shadow-panel: 0 20px 60px -20px oklch(0.15 0.02 240 / 0.1);
+}
+
+:root {
+  /* Attractive Orange & White Theme */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.12 0.015 250);
+  --surface: oklch(0.98 0.005 250);
+  --surface-2: oklch(0.96 0.01 250);
+  --light: oklch(1 0 0);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0.015 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0.015 250);
+
+  --primary: oklch(0.68 0.22 38);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.015 250);
+  --secondary-foreground: oklch(0.12 0.015 250);
+
+  --muted: oklch(0.96 0.01 250);
+  --muted-foreground: oklch(0.45 0.02 250);
+  --accent: oklch(0.96 0.01 250);
+  --accent-foreground: oklch(0.68 0.22 38);
+
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(1 0 0);
+  --success: oklch(0.7 0.15 145);
+
+  --border: oklch(0.92 0.01 250);
+  --input: oklch(0.92 0.01 250);
+  --ring: oklch(0.68 0.22 38);
+
+  --radius: 8px;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .text-balance { text-wrap: balance; }
+
+  /* Clean subtle texture */
+  .bg-grit {
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      oklch(0.12 0.015 250 / 0.03) 1px,
+      transparent 0
+    );
+    background-size: 24px 24px;
+  }
+
+  /* Section label: "— OUR SERVICES" */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 2rem;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+
+  /* Modern Rounded button */
+  .btn-industrial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+  .btn-primary:hover {
+    background: oklch(0.63 0.22 38);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-foreground);
+    border: 1px solid var(--color-border);
+  }
+  .btn-ghost:hover {
+    background: var(--color-surface);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .container-x {
+    max-width: 1400px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 1024px) {
+    .container-x { padding-inline: 5rem; }
+  }
+
+  /* Slow Rotate & Pan */
+  @keyframes slow-rotate {
+    0% { transform: scale(1.1) rotate(-2deg) translateX(-2%); }
+    100% { transform: scale(1.1) rotate(2deg) translateX(2%); }
+  }
+  .animate-slow-rotate { animation: slow-rotate 20s ease-in-out infinite alternate; }
+
+  /* Ken Burns (Keep as alternative) */
+  @keyframes kenburns {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1%, -1%); }
+  }
+  .animate-kenburns { animation: kenburns 14s ease-out forwards; }
+
+  /* Marquee */
+  @keyframes marquee-l {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes marquee-r {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  .animate-marquee-l { animation: marquee-l 40s linear infinite; }
+  .animate-marquee-r { animation: marquee-r 40s linear infinite; }
+  .marquee-pause:hover { animation-play-state: paused; }
+
+  /* Bouncing scroll arrow */
+  @keyframes bouncey {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(10px); opacity: 1; }
+  }
+  .animate-bouncey { animation: bouncey 1.8s ease-in-out infinite; }
+
+  /* Orange corner accents on images */
+  .accent-corners::before,
+  .accent-corners::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 8px;
+    background: var(--color-primary);
+    z-index: 2;
+  }
+  .accent-corners::before { top: -8px; left: -8px; }
+  .accent-corners::after { bottom: -8px; right: -8px; }
+}
