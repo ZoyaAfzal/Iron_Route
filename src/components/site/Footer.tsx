@@ -13,8 +13,8 @@ export function Footer() {
         className="absolute left-0 right-0 top-0 h-px"
         style={{ background: "linear-gradient(90deg, transparent, oklch(0.63 0.21 32), transparent)" }}
       />
-      <div className="container-x grid gap-12 pb-12 lg:grid-cols-12">
-        <div className="lg:col-span-4">
+      <div className="container-x grid gap-12 pb-12 md:grid-cols-2 lg:grid-cols-12">
+        <div className="md:col-span-2 lg:col-span-4">
           <div className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center bg-primary">
               <Truck className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
@@ -46,7 +46,7 @@ export function Footer() {
           </div>
         ))}
 
-        <div className="lg:col-span-2">
+        <div className="md:col-span-2 lg:col-span-2">
           <div className="font-display text-xs font-bold uppercase tracking-[0.22em] text-primary">Contact</div>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 1850 Freight Way, Dallas TX 75201</li>
@@ -58,18 +58,18 @@ export function Footer() {
       </div>
 
       <div className="container-x border-t border-border pb-10">
-        <div className="grid items-center gap-6 pt-8 lg:grid-cols-2">
+        <div className="grid items-center gap-6 pt-8 md:grid-cols-2">
           <div>
             <div className="font-display text-base font-bold uppercase">Stay updated on freight news</div>
             <p className="mt-1 text-xs text-muted-foreground">Monthly digest. No spam.</p>
           </div>
-          <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col sm:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
             <input
               type="email"
               placeholder="you@company.com"
-              className="h-12 flex-1 border border-border bg-surface px-4 text-sm outline-none focus:border-primary"
+              className="h-12 flex-1 border border-border bg-surface px-4 text-sm outline-none focus:border-primary w-full"
             />
-            <button className="btn-industrial btn-primary h-12">
+            <button className="btn-industrial btn-primary h-12 w-full sm:w-auto">
               Subscribe <ArrowRight className="h-4 w-4" />
             </button>
           </form>

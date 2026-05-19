@@ -23,7 +23,7 @@ export function About() {
               invisible engine behind America's hardest-working industries.
             </p>
             
-            <div className="mt-12 grid grid-cols-2 gap-10">
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-10">
               <div>
                 <div className="font-display text-4xl font-bold text-primary">15+</div>
                 <div className="mt-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">Years in Motion</div>

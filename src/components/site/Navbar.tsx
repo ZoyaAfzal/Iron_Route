@@ -38,7 +38,7 @@ export function Navbar() {
             <div className="container-x flex h-9 items-center justify-between text-muted-foreground" id="top">
               <a href="tel:+18881234567" className="flex items-center gap-2 hover:text-foreground">
                 <Phone className="h-3 w-3 text-primary" />
-                <span>Talk to an Expert:</span>
+                <span className="hidden sm:inline">Talk to an Expert:</span>
                 <span className="font-semibold text-primary">(888) 123-4567</span>
               </a>
               <div className="hidden items-center gap-5 md:flex">

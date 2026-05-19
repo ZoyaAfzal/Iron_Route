@@ -10,7 +10,7 @@ const ITEMS = [
 
 function Card({ t }: { t: (typeof ITEMS)[number] }) {
   return (
-    <div className="flex w-[360px] shrink-0 flex-col border border-border bg-surface p-7 sm:w-[440px] shadow-sm">
+    <div className="flex w-[85vw] max-w-[440px] shrink-0 flex-col border border-border bg-surface p-7 shadow-sm">
       <div className="flex items-center gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary font-display text-sm font-black text-primary-foreground">
           {t.n.split(" ").map((p) => p[0]).join("")}
@@ -19,7 +19,7 @@ function Card({ t }: { t: (typeof ITEMS)[number] }) {
           <div className="font-display text-sm font-bold uppercase tracking-wider text-foreground">{t.n}</div>
           <div className="text-xs text-muted-foreground">{t.t} · {t.c}</div>
         </div>
-        <span className="ml-auto rounded-full bg-surface-2 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+        <span className="ml-auto hidden rounded-full bg-surface-2 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground min-[400px]:inline">
           {t.tag}
         </span>
       </div>
